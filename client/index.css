@@ -1,0 +1,13 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scroll::-webkit-scrollbar {
+    width: 0;
+}
+
+.brightImage:hover {
+    filter: brightness(107%);
+}
+
