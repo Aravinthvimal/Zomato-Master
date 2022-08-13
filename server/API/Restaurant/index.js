@@ -35,11 +35,11 @@ Access           Public
 Method           GET
 */
 
-Router.get("/", async(req,res) => {
+Router.get("/city/:city", async(req,res) => {
   try{
-    await ValidateRestaurantCity(req.query);
-    
-    const {city} = req.query;
+    await ValidateRestaurantCity(req.params);
+
+    const {city} = req.params;
     const restaurants = await RestaurantModel.find({city});
 
     return res.json({restaurants});
@@ -57,12 +57,12 @@ Access           Public
 Method           GET
 */
 
-Router.get("/:_id", async(req,res) => {
+Router.get("/id/:_id", async(req,res) => {
   try {
     await ValidateRestaurantId(req.params);
 
     const { _id } = req.params;
-    const restaurant = await RestaurantModel.findOne(_id);
+    const restaurant = await RestaurantModel.findOne({_id});
 
     if(!restaurant)
     return res.status(404).json({error: "Restaurant not found"});
