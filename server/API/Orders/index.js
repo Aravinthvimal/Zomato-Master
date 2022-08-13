@@ -28,7 +28,7 @@ Router.get("/:_id", passport.authenticate("jwt") ,async(req, res) => {
         const getOrders = await OrderModel.findOne({ user: _id });
         
         if(!getOrders) {
-            return res.status(404).json({error: "User not found"});
+            return res.status(404).json( {error: "User not found"} );
         }
         
         return res.json({ orders : getOrders });
