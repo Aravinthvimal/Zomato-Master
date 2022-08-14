@@ -14,8 +14,7 @@ export const ValidateRestaurantId = (resId) => {
 export const ValidateCategory = (category) => {
     
     const Schema = joi.object({
-
-        _id: joi.string()
+        category: joi.string()
         .required()
     });
 

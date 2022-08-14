@@ -62,7 +62,7 @@ Router.post("/token", async(req, res) => {
     const refreshToken = req.body.token
 
     if(refreshToken == null)  return res.sendStatus(401)
-    //if(!refreshTokens.includes(refreshToken)) return res.sendStatus(403)
+    if(!refreshTokens.includes(refreshToken)) return res.sendStatus(403)
 
     jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
       if(err) return res.sendStatus(403)
@@ -89,18 +89,40 @@ Router.post("/signin", async(req,res) => {
   try {
     
     await ValidateSignin(req.body.credentials);
-    const user = await UserModel.findByEmailAndPassword(req.body.credentials);
+    const new_user = await UserModel.findByEmailAndPassword(req.body.credentials);
+    const user = { email : new_user }
 
     //JWT Auth Token
-    const token = user.generateJwtToken();
+    const token = generateAccessToken(user)
+    const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET)
+    refreshTokens.push(refreshToken);
 
-    return res.status(200).json({token, status: "Success"});
+    return res.status(200).json({token, refreshToken, status: "Success"});
 
   } catch (error) {
     return res.status(500).json({error: error.message});
   }
 });
 
+/*
+Route         /signout
+Descrip       Signout with email and password
+Params        None
+Access        Public
+Method        POST
+*/
+
+Router.delete("/signout", async(req, res) => {
+  try {
+    const refreshToken = req.body.token
+
+    refreshTokens = refreshTokens.filter(token => token !== refreshToken)
+    res.status(204).json({ status : "logged out" })
+
+  } catch (error) {
+    return res.status(500).json({ error : error.message })
+  }
+})
 
 /*
 Route         /google

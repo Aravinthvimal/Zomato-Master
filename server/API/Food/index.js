@@ -36,12 +36,12 @@ Access           Public
 Method           GET
 */
 
-Router.get("/:_id", async(req, res) => {
+Router.get("/id/:_id", async(req, res) => {
     try {
         await ValidateRestaurantId(req.params);
 
         const {_id} = req.params;
-        const foods = await FoodModel.find({ restautant: _id });
+        const foods = await FoodModel.find({restaurant : _id });
 
         return res.json({ foods });
     } catch (error) {
@@ -57,11 +57,11 @@ Access           Public
 Method           GET
 */
 
-Router.get("/r/:category", async(req, res) => {
+Router.get("/category", async(req, res) => {
     try {
-        await ValidateCategory(req.params);
+        await ValidateCategory(req.body);
         
-        const { category } = req.params;
+        const { category } = req.body;
         const foods = await FoodModel.find({ 
             category: { $regex: category, $options: "i" }
         });
