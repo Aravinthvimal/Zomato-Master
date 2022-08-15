@@ -33,20 +33,22 @@ Access        Public
 Method        PUT
 */
 
-Router.put("/update/:_userId", async(req, res) => {
+Router.put("/update/:userId", async(req, res) => {
     try {
+
         const { userId } = req.params;
         const { userData } = req.body;
-        const { updateUserData } = await UserModel.findByIdAndUpdate(
-            userId,
+        
+        const updatedUserProfile = await UserModel.findOneAndUpdate( userId,
             {
-                $set : userData
+                $set : userData,
             },
             {
-                new: true
+                new : true
             }
-        );
-        return res.json({user: updateUserData});
+        )
+
+        return res.json({ user : updatedUserProfile });
     } catch(error) {
         return res.status(500).json({error: error.message});
     }
