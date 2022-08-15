@@ -20,7 +20,7 @@ Router.post("/new", passport.authenticate("jwt"), async(req, res) => {
     try {
         const { ReviewData } = req.body;
         await ReviewModel.create(ReviewData);
-        return res.json({review: "Review added Successfull! Thank you for your review!"});
+        return res.json({ review: "Review added Successfully! Thank you for your review!" });
     } catch(error) {
         return res.status(500).json({error: error.message});
     }
@@ -34,7 +34,7 @@ Access        Public
 Method        DELETE
 */
 
-Router.delete("/delete", async(req, res) => {
+Router.delete("/delete/:_id", async(req, res) => {
     try {
         const { _id } = req.params;
         await ReviewModel.findByIdAndDelete(_id);
