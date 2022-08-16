@@ -49,7 +49,7 @@ Method        POST
 Router.post("/new", passport.authenticate("jwt"), async(req, res) => {
     try {
         const addNewOrder = await OrderModel.create(req.body.orderDetails);
-        return res.json({order: addNewOrder});
+        return res.json({order: addNewOrder}); 
     } catch (error) {
         return res.status(500).json({error: error.message});
     }
