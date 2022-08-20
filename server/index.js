@@ -1,10 +1,10 @@
-//env variable
-require("dotenv").config();
-
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import passport from "passport";
+
+//env variable
+require("dotenv").config();
 
 //config
 import googleAuthConfig from "./config/google.config";
