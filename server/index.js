@@ -7,8 +7,8 @@ import passport from "passport";
 require("dotenv").config();
 
 //config
-import googleAuthConfig from "./config/google.config";
-import routeConfig from "./config/route.config";
+import googleAuthConfig from "./config/google.config.js";
+import routeConfig from "./config/route.config.js";
 
 //API
 import Auth from "./API/Auth";
