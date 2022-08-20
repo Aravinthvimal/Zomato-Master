@@ -21,7 +21,7 @@ import Review from "./API/reviews/index.js";
 import Users from "./API/Users/index.js";
 
 //Database connection
-import ConnectDB from "./database/connection";
+import ConnectDB from "./database/connection.js";
 
 const zomato = express();
 
