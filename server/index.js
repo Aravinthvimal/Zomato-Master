@@ -11,14 +11,14 @@ import googleAuthConfig from "./config/google.config.js";
 import routeConfig from "./config/route.config.js";
 
 //API
-import Auth from "./API/Auth";
-import Restaurant from "./API/Restaurant";
-import Food from "./API/Food";
-import Menu from "./API/Menu";
-import Image from "./API/Image";
-import Order from "./API/orders";
-import Review from "./API/reviews";
-import Users from "./API/Users";
+import Auth from "./API/Auth/index.js";
+import Restaurant from "./API/Restaurant/index.js";
+import Food from "./API/Food/index.js";
+import Menu from "./API/Menu/index.js";
+import Image from "./API/Image/index.js";
+import Order from "./API/orders/index.js";
+import Review from "./API/reviews/index.js";
+import Users from "./API/Users/index.js";
 
 //Database connection
 import ConnectDB from "./database/connection";
