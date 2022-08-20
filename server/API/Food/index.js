@@ -3,10 +3,10 @@ import express from "express";
 import passport from "passport";
 
 // Database model
-import { FoodModel } from "../../database/allModels";
+import { FoodModel } from "../../database/allModels.js";
 
 // Validation 
-import { ValidateRestaurantId, ValidateCategory } from "../../validation/food";
+import { ValidateRestaurantId, ValidateCategory } from "../../validation/food.js";
 
 const Router = express.Router();
 

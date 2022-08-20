@@ -2,7 +2,7 @@
 import express from "express";
 
 // Database
-import { UserModel } from "../../database/allModels";
+import { UserModel } from "../../database/allModels.js";
 
 const Router = express.Router();
 

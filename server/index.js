@@ -1,10 +1,12 @@
+import dotenv from "dotenv";
+dotenv.config({ silent: process.env.NODE_ENV === 'production' });
+
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import passport from "passport";
 
 //env variable
-require("dotenv").config();
 
 //config
 import googleAuthConfig from "./config/google.config.js";

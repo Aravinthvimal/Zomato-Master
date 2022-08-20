@@ -6,10 +6,10 @@ import passport from "passport";
 const Router = express.Router();
 
 //Models
-import { UserModel } from "../../database/user";
+import { UserModel } from "../../database/user/index.js";
 
 // Validation
-import { ValidateSignup, ValidateSignin } from "../../validation/auth";
+import { ValidateSignup, ValidateSignin } from "../../validation/auth.js";
 
 /*
 Route         /signup

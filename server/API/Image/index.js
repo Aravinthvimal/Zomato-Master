@@ -5,10 +5,10 @@ import AWS from "aws-sdk";
 import multer from "multer";
 
 //Database model
-import {ImageModel} from "../../database/allModels";
+import {ImageModel} from "../../database/allModels.js";
 
 //Utilities
-import {s3Upload} from "../../Utils/AWS/s3";
+import {s3Upload} from "../../Utils/AWS/s3.js";
 
 const Router = express.Router();
 
