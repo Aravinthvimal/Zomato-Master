@@ -1,3 +1,4 @@
+//env variable
 import dotenv from "dotenv";
 dotenv.config({ silent: process.env.NODE_ENV === 'production' });
 
@@ -5,8 +6,6 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import passport from "passport";
-
-//env variable
 
 //config
 import googleAuthConfig from "./config/google.config.js";
@@ -34,9 +33,12 @@ zomato.use(cors());
 zomato.use(passport.initialize());
 zomato.use(passport.session());
 
+
 //passport configuration
 googleAuthConfig(passport);
 routeConfig(passport);
+
+console.log(process.env.GOOGLE_CLIENT_ID);
 
 //For application routes
 //localhost:4000/auth/signup

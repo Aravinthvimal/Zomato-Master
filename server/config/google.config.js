@@ -12,6 +12,7 @@ export default (passport) => {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: "http://localhost:4000/auth/google/callback"
     },
+
     async(accessToken, refreshToken, profile, done) => {
     //creating a new user
     const newUser = {
@@ -19,6 +20,7 @@ export default (passport) => {
         email: profile.emails[0].value,
         profilePic: profile.photos[0].value
     };
+    
     try{
         //check whether user exists or not
         const user = await UserModel.findOne({email: newUser.email});
