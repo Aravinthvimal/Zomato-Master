@@ -16,8 +16,8 @@ import Restaurant from "./API/Restaurant/index.js";
 import Food from "./API/Food/index.js";
 import Menu from "./API/Menu/index.js";
 import Image from "./API/Image/index.js";
-import Order from "./API/orders/index.js";
-import Review from "./API/reviews/index.js";
+import Order from "./API/Orders/index.js";
+import Review from "./API/Reviews/index.js";
 import Users from "./API/Users/index.js";
 
 //Database connection
